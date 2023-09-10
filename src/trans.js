@@ -19,6 +19,7 @@ function AlertDialogExample() {
         <Button colorScheme='blackAlpha' 
         width={{ base: "70%", md: "70%" }}
          m="auto" my="2%" 
+         type="submit"
          onClick={onOpen}>
           Shorten URL
         </Button>

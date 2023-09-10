@@ -8,6 +8,26 @@ import AlertDialogExample from "./trans.js"; // Adjust the import path
 
 
 function App() {
+  const [longURL, setLongURL] = useState('');
+  const handleInputChange = (e) => {
+    setLongURL(e.target.value);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevents the default form submission behavior (page refresh)
+  
+    // Use Axios (or fetch) to send the long URL to your backend
+    try {
+      const response = await axios.post('http://localhost:5001/shortURL', {
+        longURL: longURL,
+      });
+  
+      console.log(response.data); // This will be the shortened URL returned by your backend
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  
   const styles = {
   mr: '50px',
   ml: '50px',
@@ -37,18 +57,24 @@ function App() {
   Are your links long, unruly, and difficult to share? Look no further! We're here to make your online experience smoother and more efficient. With <strong>SHORTURL</strong>, you can transform those lengthy URLs into concise, easy-to-share links.
   </Text>
 </Box>
+    <form onSubmit={handleSubmit}>
       <Box sx={styles} 
       width={{ base: "40%", md: "40%" }}
       height={{ base: "50%", md: "55%" }}
       flexGrow="1">
         <Stack spacing={4} >
           <h5 textShadow="5px 5px 5px #ffffff">shorten any url from here!</h5>
-          <Input placeholder='Enter the URL here!'
+          <Input
+          type="text"
+          value={longURL}
+          onChange={handleInputChange}
+          placeholder="https://example.com"
           width={{ base: "70%", md: "70%" }}
            color='black' bg="#00000" margin="auto" />
           <AlertDialogExample />
         </Stack>
-      </Box>
+      </Box></form>
+      
       </Flex>
     </ChakraProvider>
   );
