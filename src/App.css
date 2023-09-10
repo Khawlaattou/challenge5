@@ -29,26 +29,7 @@
   color: #61dafb;
 }
 
-.ch{
- display: inline-flex;
- margin-top: 200px;
- margin-left: 50px;
-}
 
-.hello{
-  height: 400px;
-  width: 600px;
-  margin-right: 50px;
-  margin-left: 200px;
-  background-color: #f7efef;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 8px  #9b9b9b,0 8px 8px   #e4e4e4;
-  border: outset none solid;
-}
-.full{
-  height: 100%;
-}
 h5{
   text-align: center;
   font-size: 30px;
