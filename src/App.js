@@ -19,7 +19,7 @@ function App() {
   
     // Use Axios (or fetch) to send the long URL to your backend
     try {
-      const response = await axios.post('http://localhost:5001/shortURL', {
+      const response = await axios.post('https://url-shortcut-generator.onrender.com/shortURL', {
         longURL: longURL,
       });
   
